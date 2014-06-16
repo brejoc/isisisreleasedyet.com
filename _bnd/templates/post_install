@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# prepare directories
+mkdir -p /home/web/{{ domain }}/db
+mkdir -p /home/web/{{ domain }}/uploads
+mkdir -p /home/web/{{ domain }}/logs
+mkdir -p /home/web/{{ domain }}/cache
+mkdir -p /home/web/{{ domain }}/static
+chown -R www-data:www-data /home/web/{{ domain }}
+
+# nginx
+ln -s /etc/nginx/sites-available/{{ domain }} /etc/nginx/sites-enabled/{{ domain }}
+/etc/init.d/nginx reload
+
+/usr/bin/hlti 1> /home/web/{{ domain }}/cache/index.html
+service cron reload

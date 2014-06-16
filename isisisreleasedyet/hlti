@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import urllib
+import time
+import datetime
+from jinja2 import Template, Environment, FileSystemLoader
+
+"""
+Retrieves the number of blueprints and bugs left until
+the arrival of elementary OS Isis.
+"""
+
+PRODUCTION = True
+
+if PRODUCTION:
+    env = Environment(loader=FileSystemLoader('/srv/http/isisisreleasedyet.com/lib/jinja_templates'))
+else:
+    env = Environment(loader=FileSystemLoader('jinja_templates'))
+
+time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d@%H:%M:%S UTC+1')
+
+# Get Launchpad data.
+f = urllib.urlopen("https://launchpad.net/elementary/+milestone/isis-beta1")
+s = f.read()
+f.close()
+
+# Write data to temp file.
+ff = open("temp.del", "w")
+ff.write(s)
+ff.close()
+
+# Find number of blueprints and bugs left.
+temp = open("temp.del", "r")
+for i, line in enumerate(temp):
+	if 'span class="statusINCOMPLETE">' in line and i < 450:
+		a = temp.next()
+		b = a.split('<strong>')
+		c = b[1].split('</strong>')
+		b_incomp = int(c[0])
+
+	if 'span class="statusCONFIRMED">' in line and i < 450:
+		a = temp.next()
+		b = a.split('<strong>')
+		c = b[1].split('</strong>')
+		b_conf = int(c[0])
+
+	if 'span class="statusINPROGRESS">' in line and i < 450:
+		a = temp.next()
+		b = a.split('<strong>')
+		c = b[1].split('</strong>')
+		b_inprog = int(c[0])
+
+
+# Delete temp file.
+os.remove('temp.del')
+
+
+
+# Print to console.
+bugs = b_incomp + b_conf + b_inprog
+
+script_template = env.get_template("index.html")
+print(script_template.render({ "bugs": bugs , "time_stamp": time_stamp }))
+
+#with open("index.html", "wb") as fh: 
+#    fh.write(script_template.render({ "bugs": bugs }))

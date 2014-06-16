@@ -1,0 +1,131 @@
+/******************************************************
+    full size background image
+    =====
+*/
+
+html { 
+    background: url(/static/images/tunnel.jpg) no-repeat center center fixed; 
+    background-position: top center; 
+    /* background-size: 1920px; */
+    background-size: 2000px;
+    background-color: #44a2e9;
+}
+
+body {
+    background-color: transparent;
+    font-size: 16px;
+}
+
+div.content {
+    background-color: #44a2e9;
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media screen and (min-height: 721px) {
+    div.content {
+	margin-top: 16em;
+    }
+}
+
+@media screen and (max-height: 720px) {
+    div.content {
+	margin-top: 12em;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    div.content {
+	margin-top: 8em;
+    }
+}
+
+@media screen and (max-height: 300px) {
+    div.content {
+	margin-top: 4em;
+    }
+}
+
+@media screen and (max-height: 330px) {
+    div.content {
+	margin-top: 2em;
+    }
+}
+
+div.content h1 {
+    text-align: center;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    line-height: 1.5em;
+}
+
+
+span.bug-count {
+    display: block-inline;
+    border: 1px solid white;
+    padding: 0.1em 0.2em 0.1em 0.2em;
+}
+
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.938em;
+    color: black;
+}
+
+a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.938em;
+    color: #971c07;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.500em;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+#header {
+    margin-left: -25px;
+}
+
+#header img {
+    border: 0;
+}
+
+
+/* Footer
+------------------------------------------------- */
+
+.footer {
+    position: fixed;
+    bottom: 1em;
+    padding-top: 2em;
+    padding-left: 10px;
+    height: 4em;
+}
+
+.footer p {
+    display: block;
+    vertical-align: text-bottom;
+    width: 100%;
+    background: rgba(0, 0, 0, .2);
+    padding-left: 15px;
+    padding-right: 15px;
+
+    font-size: .9em 
+    font-weight: 400;
+    color: white;
+}
+
+.footer a {
+    font-size: .9em;
+    font-weight: 400;
+    color: white;
+}

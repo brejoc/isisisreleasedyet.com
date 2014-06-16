@@ -1,0 +1,27 @@
+name: isisisreleasedyet_com
+input-type: dir
+pkg-type: deb
+chdir: build
+args:
+    - etc
+    - srv
+    - usr
+config-files:
+    - /etc/nginx/sites-available/isisisreleasedyet.com
+after-install: ./build_configs/post_install.sh
+before-remove: ./build_configs/pre_uninstall.sh
+dependencies:
+    - nginx
+license: MIT
+maintainer: Jochen Breuer <breuer@dajool.com>
+url: http://dajool.com
+deb-user: root
+deb-group: root
+architecture: all
+description: |-
+    isisisreleasedyet.com 
+build-vars:
+    domain: isisisreleasedyet.com
+    var_path: /home/web/
+    srv_path: /srv/http/
+    package_name: isisisreleasedyet_com
