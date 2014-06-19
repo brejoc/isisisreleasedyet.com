@@ -1,5 +1,5 @@
 # What is it?
-This repository includes the sources and build/packaging scripts for isisisreleadyet.com - a fun project that shows how many bugs have to be fixed until Isis, the new Version of [elementary os](elementaryos.org) will be made available. Is Isis Released Yet makes use of hlti.py I found somewhere on G+. I hope the author doesn't mind using the script. Please get in touch with me, so that I can give you proper credit here!
+This repository includes the sources and build/packaging scripts for isisisreleadyet.com - a fun project that shows how many bugs have to be fixed until the beta1 of Isis, the new Version of [elementary os](elementaryos.org) will be made available. Is Isis Released Yet makes use of [HLTI.py from Gabriel Perren](https://github.com/Gabriel-p/launchpad-bug-countdown). 
 
 # Dependencies
 * [invoke](https://github.com/pyinvoke/invoke)
