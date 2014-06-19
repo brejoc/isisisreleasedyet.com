@@ -20,6 +20,6 @@ You can easily adopt this to other packaging systems and web servers. fpm also s
 
 # Authors
 
-* Henrik Weber <weber@dajool.com>
-* Jochen Breuer <breuer@dajool.com>
-* The unknown author of hlti.py
+* HLTI.py: Gabriel Perren [GitHub](https://github.com/Gabriel-p)
+* Design: Henrik Weber <weber@dajool.com>
+* Deployment, HTML and glue code: Jochen Breuer <breuer@dajool.com>
