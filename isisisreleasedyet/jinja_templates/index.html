@@ -46,10 +46,11 @@
 	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
 		<div class="h1-section">
 		    {% if bugs > 0 %}
-		    <h1><span class="bug-count">{{ bugs }}</span> bugs left until Isis. Quit moaning.</h1>
+		    <h1><a href="https://launchpad.net/elementary/+milestone/isis-beta1" title="Link to beta1 milestone on launchpad." target="_blank"><span class="bug-count">{{ bugs }}</span> {{ message }}</a></h1>
 		    {% else %}
-		    <h1>HURRAY! Isis should be out soon. There are no more bugs left!</h1>
+		    <h1>Isis beta1 should land soon. You can officially freak out now! :)</h1>
 		    {% endif %}
+		<p><a href="https://www.bountysource.com/teams/elementary" target="_blank" title="elementary uses Bountysource to help developers with some money for fixed bugs and issues.">Please consider giving money to developers by putting bounties on bugs and issues.</a>
 		</div>
 	    </div>
 	    <div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">

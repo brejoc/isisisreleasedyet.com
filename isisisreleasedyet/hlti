@@ -8,8 +8,7 @@ import datetime
 from jinja2 import Template, Environment, FileSystemLoader
 
 """
-Retrieves the number of blueprints and bugs left until
-the arrival of elementary OS Isis.
+Retrieves the number of bugs left until the arrival of elementary OS Isis beta1.
 """
 
 PRODUCTION = True
@@ -31,38 +30,57 @@ ff = open("temp.del", "w")
 ff.write(s)
 ff.close()
 
-# Find number of blueprints and bugs left.
+
+# Find number of bugs left.
 temp = open("temp.del", "r")
 for i, line in enumerate(temp):
-	if 'span class="statusINCOMPLETE">' in line and i < 450:
-		a = temp.next()
-		b = a.split('<strong>')
-		c = b[1].split('</strong>')
-		b_incomp = int(c[0])
 
-	if 'span class="statusCONFIRMED">' in line and i < 450:
-		a = temp.next()
-		b = a.split('<strong>')
-		c = b[1].split('</strong>')
-		b_conf = int(c[0])
+        # New bugs.
+        if 'span class="statusNEW">' in line and i < 450:
+                a = temp.next()
+                b = a.split('<strong>')
+                c = b[1].split('</strong>')
+                b_new = int(c[0])
 
-	if 'span class="statusINPROGRESS">' in line and i < 450:
-		a = temp.next()
-		b = a.split('<strong>')
-		c = b[1].split('</strong>')
-		b_inprog = int(c[0])
+        # Incomplete bugs.
+        if 'span class="statusINCOMPLETE">' in line and i < 450:
+                a = temp.next()
+                b = a.split('<strong>')
+                c = b[1].split('</strong>')
+                b_incomp = int(c[0])
 
+        # Confirmed bugs.
+        if 'span class="statusCONFIRMED">' in line and i < 450:
+                a = temp.next()
+                b = a.split('<strong>')
+                c = b[1].split('</strong>')
+                b_conf = int(c[0])
+
+        # In progress bugs.
+        if 'span class="statusINPROGRESS">' in line and i < 450:
+                a = temp.next()
+                b = a.split('<strong>')
+                c = b[1].split('</strong>')
+                b_inprog = int(c[0])
 
 # Delete temp file.
 os.remove('temp.del')
 
 
+bugs = b_new + b_incomp + b_conf + b_inprog
 
-# Print to console.
-bugs = b_incomp + b_conf + b_inprog
+message = ""
+if bugs >= 15:
+        message = 'issues left until Isis beta1. Quit moaning.'
+elif bugs >= 10:
+        message = 'issues left until Isis beta1. Getting there.'
+elif bugs >= 5:
+        message = 'issues left until Isis beta1. Countdown begins!'
+elif bugs >= 1:
+        message = 'issues left until Isis beta1. Soooo close!'
+elif bugs == 1:
+        message = 'bug left until Isis beta1. JUST ONE MORE TO GO!'
 
+# get jinja template and print to stdout
 script_template = env.get_template("index.html")
-print(script_template.render({ "bugs": bugs , "time_stamp": time_stamp }))
-
-#with open("index.html", "wb") as fh: 
-#    fh.write(script_template.render({ "bugs": bugs }))
+print(script_template.render({ "bugs": bugs , "time_stamp": time_stamp, "message": message }))

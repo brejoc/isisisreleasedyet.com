@@ -55,7 +55,7 @@ div.content {
 div.content h1 {
     text-align: center;
     margin-top: 1.2em;
-    margin-bottom: 1.2em;
+    margin-bottom: .5em;
     line-height: 1.5em;
 }
 
@@ -75,10 +75,18 @@ p {
 }
 
 a {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: 0.938em;
-    color: #971c07;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
 }
 
 h1 {
@@ -88,6 +96,10 @@ h1 {
     color: white;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.h1-section p {
+    margin-bottom: 1.2em;
 }
 
 
