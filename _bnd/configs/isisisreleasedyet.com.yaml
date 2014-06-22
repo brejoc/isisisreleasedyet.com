@@ -22,6 +22,10 @@ description: |-
     isisisreleasedyet.com 
 build-vars:
     domain: isisisreleasedyet.com
+    aliases:
+        - '*.isisisreleasedyet.com'
+        - isfreyareleasedyet.com
+        - '*.isfreyareleasedyet.com'
     var_path: /home/web/
     srv_path: /srv/http/
     package_name: isisisreleasedyet_com
