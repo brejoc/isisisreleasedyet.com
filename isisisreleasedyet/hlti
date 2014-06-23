@@ -8,7 +8,9 @@ import datetime
 from jinja2 import Template, Environment, FileSystemLoader
 
 """
-Retrieves the number of bugs left until the arrival of elementary OS Isis beta1.
+Retrieves the number of bugs left until the arrival of elementary OS Freya beta 1.
+
+Run via console it with: ./hlti
 """
 
 PRODUCTION = True
@@ -21,7 +23,7 @@ else:
 time_stamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d@%H:%M:%S UTC+1')
 
 # Get Launchpad data.
-f = urllib.urlopen("https://launchpad.net/elementary/+milestone/isis-beta1")
+f = urllib.urlopen("https://launchpad.net/elementary/+milestone/freya-beta1")
 s = f.read()
 f.close()
 
@@ -71,15 +73,15 @@ bugs = b_new + b_incomp + b_conf + b_inprog
 
 message = ""
 if bugs >= 15:
-        message = 'issues left until Freya beta1. Quit moaning.'
+        message = 'issues left until Freya beta 1. Quit moaning.'
 elif bugs >= 10:
-        message = 'issues left until Freya beta1. Getting there.'
+        message = 'issues left until Freya beta 1. Getting there.'
 elif bugs >= 5:
-        message = 'issues left until Freya beta1. Countdown begins!'
+        message = 'issues left until Freya beta 1. Countdown begins!'
 elif bugs >= 1:
-        message = 'issues left until Freya beta1. Soooo close!'
+        message = 'issues left until Freya beta 1. Soooo close!'
 elif bugs == 1:
-        message = 'bug left until Freya beta1. JUST ONE MORE TO GO!'
+        message = 'bug left until Freya beta 1. JUST ONE MORE TO GO!'
 
 # get jinja template and print to stdout
 script_template = env.get_template("index.html")
