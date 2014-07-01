@@ -80,15 +80,15 @@ bugs = b_new + b_incomp + b_conf + b_inprog
 
 message = ""
 if bugs >= 15:
-        message = 'issues left until Freya beta 1. Quit moaning.'
+    message = 'issues left until Freya beta 1. Quit moaning.'
 elif bugs >= 10:
-        message = 'issues left until Freya beta 1. Getting there.'
+    message = 'issues left until Freya beta 1. Getting there.'
 elif bugs >= 5:
-        message = 'issues left until Freya beta 1. Countdown begins!'
-elif bugs >= 1:
-        message = 'issues left until Freya beta 1. Soooo close!'
+    message = 'issues left until Freya beta 1. Countdown begins!'
+elif bugs >= 2:
+    message = 'issues left until Freya beta 1. Soooo close!'
 elif bugs == 1:
-        message = 'bug left until Freya beta 1. JUST ONE MORE TO GO!'
+    message = 'bug left until Freya beta 1. JUST ONE MORE TO GO!'
 
 # get jinja template and print to stdout
 script_template = env.get_template("index.html")
