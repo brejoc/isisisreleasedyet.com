@@ -6,7 +6,7 @@ The [Beta 1](http://elementaryos.org/journal/freya-beta-1-available-for-develope
 Most people visited IFRY directly. G+ brought 11,847 visitors and vk.com (don't know what it is) 7,436. Interestingly reddit and fuckyeah-elementaryos.tumblr.com are nearly on par with 5,592 and 4,333 visitors.  
 And a whole bunch of people googled for the URL. ;)
 
-![Server Log](doc/server_log.png)
+![Server Log](https://bytebucket.org/brejoc/isisisreleasedyet.com/raw/b4637fd0f433ac050a0c1e63252a7f5b2011bc26/doc/server_log.png)
 
 # Dependencies
 * [invoke](https://github.com/pyinvoke/invoke)
