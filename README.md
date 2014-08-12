@@ -1,5 +1,12 @@
 # What is it?
-This repository includes the sources and build/packaging scripts for isisisreleadyet.com - a fun project that shows how many bugs have to be fixed until the beta1 of Isis, the new Version of [elementary os](elementaryos.org) will be made available. Is Isis Released Yet makes use of [HLTI.py from Gabriel Perren](https://github.com/Gabriel-p/launchpad-bug-countdown). 
+This repository includes the sources and build/packaging scripts for isfreyareleadyet.com - a fun project that shows how many bugs have to be fixed until the beta 1 of Freys, the new Version of [elementary os](elementaryos.org) will be made available. Is Freya Released Yet makes use of [HLTI.py from Gabriel Perren](https://github.com/Gabriel-p/launchpad-bug-countdown).
+
+## UPDATE:
+The [Beta 1](http://elementaryos.org/journal/freya-beta-1-available-for-developers-testers) has been released and looks really awesome. IFRY is no longer needed, but I'd like to publish some number here: 99,783 unique visitors with 581,546 total requests in roughly two month. Nearly 9,700 visitors a day. Most of the visitors already run Linux (52,336), but 19,408 visitors used Windows. I guess the 20,393 visitors with _Unknown_ Operating Systems are using iOS or Android.  
+Most people visited IFRY directly. G+ brought 11,847 visitors and vk.com (don't know what it is) 7,436. Interestingly reddit and fuckyeah-elementaryos.tumblr.com are nearly on par with 5,592 and 4,333 visitors.  
+And a whole bunch of people googled for the URL. ;)
+
+![Server Log](doc/server_log.png)
 
 # Dependencies
 * [invoke](https://github.com/pyinvoke/invoke)
