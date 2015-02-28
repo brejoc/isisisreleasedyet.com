@@ -30,3 +30,4 @@ You can easily adopt this to other packaging systems and web servers. fpm also s
 * HLTI.py: Gabriel Perren [GitHub](https://github.com/Gabriel-p)
 * Design: Henrik Weber <weber@dajool.com>
 * Deployment, HTML and glue code: Jochen Breuer <breuer@dajool.com>
+* davidak [GitHub](https://github.com/davidak) [Website](http://davidak.de/)
