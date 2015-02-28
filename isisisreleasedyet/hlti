@@ -129,4 +129,4 @@ elif bugs == 1:
 
 # get jinja template and print to stdout
 script_template = env.get_template("index.html")
-print(script_template.render({ "milestone": milestone, "bugs": bugs, "time_stamp": time_stamp, "message": message }))
+print(script_template.render({ "milestone": milestone, "codename": codename, "bugs": bugs, "time_stamp": time_stamp, "message": message }))
