@@ -35,7 +35,7 @@ Run it via console with: ./hlti
 
 milestone = "freya-rc1"
 codename = "Freya RC1"
-PRODUCTION = False
+PRODUCTION = True
 
 if PRODUCTION:
     env = Environment(loader=FileSystemLoader('/srv/http/isisisreleasedyet.com/lib/jinja_templates'))
@@ -56,48 +56,64 @@ ff.close()
 
 
 # Find number of bugs left.
+bugs_line = 500
 
 b_new = 0
 b_incomp = 0
 b_conf = 0
+b_triaged = 0
 b_inprog = 0
-
+b_fix_committed = 0
 
 temp = open("temp.del", "r")
 for i, line in enumerate(temp):
 
         # New bugs.
-        if 'span class="statusNEW">' in line and i < 450:
+        if 'span class="statusNEW">' in line and i < bugs_line:
                 a = temp.next()
                 b = a.split('<strong>')
                 c = b[1].split('</strong>')
                 b_new = int(c[0])
 
         # Incomplete bugs.
-        if 'span class="statusINCOMPLETE">' in line and i < 450:
+        if 'span class="statusINCOMPLETE">' in line and i < bugs_line:
                 a = temp.next()
                 b = a.split('<strong>')
                 c = b[1].split('</strong>')
                 b_incomp = int(c[0])
 
         # Confirmed bugs.
-        if 'span class="statusCONFIRMED">' in line and i < 450:
+        if 'span class="statusCONFIRMED">' in line and i < bugs_line:
                 a = temp.next()
                 b = a.split('<strong>')
                 c = b[1].split('</strong>')
                 b_conf = int(c[0])
 
+        # Triaged bugs.
+        if 'span class="statusTRIAGED">' in line and i < bugs_line:
+                a = temp.next()
+                b = a.split('<strong>')
+                c = b[1].split('</strong>')
+                b_triaged = int(c[0])
+
         # In progress bugs.
-        if 'span class="statusINPROGRESS">' in line and i < 450:
+        if 'span class="statusINPROGRESS">' in line and i < bugs_line:
                 a = temp.next()
                 b = a.split('<strong>')
                 c = b[1].split('</strong>')
                 b_inprog = int(c[0])
 
+        # In progress bugs.
+        if 'span class="statusFIXCOMMITTED">' in line and i < bugs_line:
+                a = temp.next()
+                b = a.split('<strong>')
+                c = b[1].split('</strong>')
+                b_fix_committed = int(c[0])
+
 # Delete temp file.
 os.remove('temp.del')
 
-bugs = b_new + b_incomp + b_conf + b_inprog
+bugs = b_new + b_incomp + b_conf + b_triaged + b_inprog + b_fix_committed
 
 message = "issues left until {}. ".format(codename)
 if bugs >= 15:
