@@ -113,7 +113,7 @@ for i, line in enumerate(temp):
 # Delete temp file.
 os.remove('temp.del')
 
-bugs = b_new + b_incomp + b_conf + b_triaged + b_inprog + b_fix_committed
+bugs = b_new + b_incomp + b_conf + b_triaged + b_inprog
 
 message = "issues left until {}. ".format(codename)
 if bugs >= 15:
